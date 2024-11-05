@@ -6,20 +6,25 @@
     <title>Форма отправки запроса</title>
 </head>
 <body>
+  <div class="forma">
     <h1>Отправка запроса</h1>
 
-    <form id="requestForm">
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required>
+    <form id="requestForm" (ngSubmit)="onSubmited()">
+        <label for="link">Ссылка:</label>
+        <input class= "link" type="text" [(ngModel)]="link1" name="link1" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Сообщение:</label>
-        <textarea id="message" name="message"></textarea>
+        <label for="level">Глубина поиска:</label>
+        <input type="text" [(ngModel)]="level" name="level" required>
 
         <button type="submit">Отправить</button>
     </form>
+  </div>
+  <div class="list">
+    <h1>Список серверов</h1>
+    <ul>
+      <li *ngFor="let item of visited">{{ item }}</li>
+    </ul>
+  </div>
 </body>
 </html>
 
